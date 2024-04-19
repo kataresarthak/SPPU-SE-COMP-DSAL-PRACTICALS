@@ -84,13 +84,17 @@ int main()
         cin>>ch;
         switch (ch)
         {
-            case 1: t.createnode();
+            case 1:
+                t.createnode();
                 break;
-            case 2:t.displaytree();
+            case 2:
+                t.displaytree();
                 break;
-            case 0: exit(0);
+            case 0:
+                exit(0);
                 break;
-            default:    cout<<"WRONG CHOICE !!";
+            default:
+                cout<<"WRONG CHOICE !!";
         }
     }
     return 0;
