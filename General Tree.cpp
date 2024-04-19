@@ -21,33 +21,6 @@ class Tree
         void displaytree();
 };
 
-int main()
-{
-    int ch;
-    Tree t;
-    while(true)
-    {
-        cout<<"\n================MENU================\n";
-        cout<<"\n1.CREATE TREE"<<endl;
-        cout<<"2.DISPLAY TREE"<<endl;
-        cout<<"0.EXIST"<<endl;
-        cout<<"ENTER YOUR CHOICE :";
-        cin>>ch;
-        switch (ch)
-        {
-            case 1: t.createnode();
-                break;
-            case 2:t.displaytree();
-                break;
-            case 0: exit(0);
-                break;
-            default:    cout<<"WRONG CHOICE !!";
-        }
-    }
-    return 0;
-}
-
-
 void Tree::createnode()
 {
     root=new Node;
@@ -95,4 +68,30 @@ void Tree::displaytree()
         }
         cout<<"\t\t--------------------------------"<<endl;
     }
+}
+
+int main()
+{
+    int ch;
+    Tree t;
+    while(true)
+    {
+        cout<<"\n================MENU================\n";
+        cout<<"\n1.CREATE TREE"<<endl;
+        cout<<"2.DISPLAY TREE"<<endl;
+        cout<<"0.EXIST"<<endl;
+        cout<<"ENTER YOUR CHOICE :";
+        cin>>ch;
+        switch (ch)
+        {
+            case 1: t.createnode();
+                break;
+            case 2:t.displaytree();
+                break;
+            case 0: exit(0);
+                break;
+            default:    cout<<"WRONG CHOICE !!";
+        }
+    }
+    return 0;
 }
