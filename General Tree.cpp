@@ -27,10 +27,11 @@ int main()
     Tree t;
     while(true)
     {
-        cout<<"\n\n1.Create Tree"<<endl;
-        cout<<"2.Display Tree"<<endl;
-        cout<<"0.Exit"<<endl;
-        cout<<"Enter Choice:";
+        cout<<"\n================MENU================\n";
+        cout<<"\n1.CREATE TREE"<<endl;
+        cout<<"2.DISPLAY TREE"<<endl;
+        cout<<"0.EXIST"<<endl;
+        cout<<"ENTER YOUR CHOICE :";
         cin>>ch;
         switch (ch)
         {
@@ -40,7 +41,7 @@ int main()
                 break;
             case 0: exit(0);
                 break;
-            default:    cout<<"Wrong Choice!";
+            default:    cout<<"WRONG CHOICE !!";
         }
     }
     return 0;
@@ -51,27 +52,27 @@ void Tree::createnode()
 {
     root=new Node;
     
-    cout<<"Enter The Name Of The Book:- ";
+    cout<<"ENTER THE NAME OF THE BOOK:- ";
     cin.ignore();
     getline(cin,root->name);
     
-    cout<<"Enter No Of Chapters In Book:- ";
+    cout<<"ENTER THE NUMBER OF CHAPTERS IN THE BOOK:- ";
     cin>>root->count;
     
     for(int i=0;i<root->count;i++)
     {
         root->child[i]=new Node;
-        cout<<"\tEnter The Name Of Chapter: "<<i+1<<":- ";
+        cout<<"\tENTER THE NAME OF THE CHAPTER : "<<i+1<<":- ";
         cin.ignore();
         getline(cin,root->child[i]->name);
         
-        cout<<"\tEnter No Of Sections In Chapter:"<<root->child[i]->name<<":- ";
+        cout<<"\tENTER NUMBER OF SECTIONS IN CHAPTER :"<<"\t"<<root->child[i]->name<<":- ";
         cin>>root->child[i]->count;
         
         for(int j=0;j<root->child[i]->count;j++)
         {
             root->child[i]->child[j]=new Node;
-            cout<<"\t\tEnter The Name Of The Section:"<<j+1<<":- ";
+            cout<<"\t\tENTER THE NAME OF THE SECTION :"<<"\t"<<j+1<<":- ";
             cin.ignore();
             getline(cin,root->child[i]->child[j]->name);
             
@@ -82,8 +83,8 @@ void Tree::createnode()
 
 void Tree::displaytree()
 {
-    cout<<"\n\n================Index================\n\n";
-    cout<<"Book\t\tChapter\t\tSection"<<endl;
+    cout<<"\n================INDEX================\n";
+    cout<<"BOOK\t\tCHAPTER\t\tSECTION"<<endl;
     cout<<root->name<<endl;
     for(int i=0;i<root->count;i++)
     {
@@ -92,6 +93,6 @@ void Tree::displaytree()
         {
             cout<<"\t\t\t\t"<<root->child[i]->child[j]->name<<endl;
         }
-        cout<<"\t\t-------------------------"<<endl;
+        cout<<"\t\t--------------------------------"<<endl;
     }
 }
