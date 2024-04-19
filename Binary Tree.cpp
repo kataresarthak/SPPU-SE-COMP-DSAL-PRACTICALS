@@ -26,9 +26,7 @@ class node
 
     void nonrecvlr(node *root);
     void nonreclvr(node *root);
-
     void nonreclrv(node *root);
-
 };
 
 node * node::create(node *root)
@@ -37,21 +35,19 @@ node * node::create(node *root)
     char c;
     do
     {
-
         temp=new node;
-    temp->left=NULL;
-    temp->right=NULL;
-    temp->visit=false;
-    cout<<"\nENTER THE DATA :";
-    cin>>temp->data;
-    if(root==NULL)
-        root=temp;
-    else
-        insert(root,temp);
-    cout<<"\nWANT TO ENTER MORE NODES (Y/N) :";
-    cin>>c;
+        temp->left=NULL;
+        temp->right=NULL;
+        temp->visit=false;
+        cout<<"\nENTER THE DATA :";
+        cin>>temp->data;
+        if(root==NULL)
+            root=temp;
+        else
+            insert(root,temp);
+        cout<<"\nWANT TO ENTER MORE NODES (Y/N) :";
+        cin>>c;
     }while(c=='Y' || c=='y');
-
     return root;
 }
 
