@@ -35,17 +35,17 @@ void Tree::createnode()
     for(int i=0;i<root->count;i++)
     {
         root->child[i]=new Node;
-        cout<<"\tENTER THE NAME OF THE CHAPTER : "<<i+1<<":- ";
+        cout<<"\tENTER THE NAME OF THE CHAPTER "<<i+1<<":- ";
         cin.ignore();
         getline(cin,root->child[i]->name);
         
-        cout<<"\tENTER NUMBER OF SECTIONS IN CHAPTER :"<<"\t"<<root->child[i]->name<<":- ";
+        cout<<"\tENTER NUMBER OF SECTIONS IN CHAPTER "<<root->child[i]->name<<":- ";
         cin>>root->child[i]->count;
         
         for(int j=0;j<root->child[i]->count;j++)
         {
             root->child[i]->child[j]=new Node;
-            cout<<"\t\tENTER THE NAME OF THE SECTION :"<<"\t"<<j+1<<":- ";
+            cout<<"\t\tENTER THE NAME OF THE SECTION "<<j+1<<":- ";
             cin.ignore();
             getline(cin,root->child[i]->child[j]->name);
             
