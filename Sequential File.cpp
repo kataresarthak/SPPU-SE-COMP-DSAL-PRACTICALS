@@ -25,7 +25,6 @@ void create()
 	fout.close();
 }
 
-
 void display()
 {
 	ifstream fin;
@@ -64,7 +63,6 @@ void search()
 	fin.close();
 
 }
-
 
 void delete_rec()
 {
@@ -149,8 +147,8 @@ void update_rec()
 		cout<<"\nRECORD NOT FOUND !!";
 	else
 		display();
-
 }
+
 int main()
 {
 	int res;
@@ -163,22 +161,22 @@ int main()
 		switch(ch)
 		{
 		    case 1:
-                create();
-				break;
+                	create();
+			break;
 		    case 2:
-                display();
-			    break;
+               		display();
+			break;
 		    case 3:
-                search();
-				break;
+                	search();
+			break;
 		    case 4:
-                delete_rec();
-				break;
+                	delete_rec();
+			break;
 		    case 5:
-                update_rec();
-				break;
-            case 6:
-                break;
+               	 	update_rec();
+			break;
+            	    case 6:
+                	break;
 		}
 	}while(ch!=6);
 }
