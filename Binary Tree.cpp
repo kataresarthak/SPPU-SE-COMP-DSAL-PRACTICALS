@@ -6,9 +6,9 @@ using namespace std;
 #define max 100
 class node
 {
-    public: //access specifier
+    public:
 
-    int data,top,visit;//data members
+    int data,top,visit;
     node *left,*right;
     node *root;
     node()
@@ -29,7 +29,7 @@ class node
     void nonreclrv(node *root);
 };
 
-node * node::create(node *root)
+node *node::create(node *root)
 {
     node *temp;
     char c;
@@ -72,15 +72,15 @@ void node::insert(node *root,node *temp)
 }
 }
 
-void node::dispmenu(node *root)//vlr
+void node::dispmenu(node *root)
 {
     int ch;
     char ans;
     node *stack[100];
     do
     {
-        cout<<"\nDISPLAY BINARY TREE:-\n1:RECURSIVE PREORDER\n2:RECURSIVE INORDER\n3:RECURSIVEPOSTORDER\n";
-        cout<<"4:NON-RECURSIVE PREORDER\n5:NON-RECURSIVE INORDER\n6:NON-RECURSIVEPOST ORDER";
+        cout<<"\nDISPLAY BINARY TREE:-\n1.RECURSIVE PREORDER\n2.RECURSIVE INORDER\n3.RECURSIVE POSTORDER\n";
+        cout<<"4.NON-RECURSIVE PREORDER\n5.NON-RECURSIVE INORDER\n6.NON-RECURSIVE POSTORDER";
         cout<<"\nENTER YOUR CHOICE :";
         cin>>ch;
         switch(ch)
@@ -165,7 +165,6 @@ void node::nonrecvlr(node *root)
         {
             temp=stack[top];
             top--;
-            // cout<<temp->data;
             temp=temp->right;
         }
         else
@@ -199,49 +198,35 @@ void node::nonreclvr(node *root)
     }
 }
 
-void node::nonreclrv(node *root)
+void node::nonreclrv(node* root)
 {
-    node *stack[100],*temp;
+    node *stack[100];
     int top=-1;
-    temp=root;
-        // node *oldTemp;
-    top++;
-    stack[top]=temp; //push root on stack first
+    node *temp=root;
+    node *prev=NULL;
 
-    while(top!=-1) //stack is not empty
+    while (temp!=NULL || top!=-1)
     {
-        if(temp->left!=NULL && temp->left->visit==false) //if left not null and not visite
+        while (temp!=NULL)
         {
-            //1. push left
-            //2. make left as current
-            top++;
-            stack[top]=temp->left; //push(temp->left);
+            stack[++top]=temp;
             temp=temp->left;
         }
 
-// if right is not null and not visited then push it and go to right
-        else if((temp->right!=NULL) && (temp->right->visit==false))
+        temp=stack[top];
+
+        if (temp->right==nullptr || temp->right==prev)
         {
-            //1.push right
-            //2. make right as current
-            top++;
-            stack[top]=temp->right; // push(temp->right);
+            cout<<temp->data<<"\t";
+            top--;
+            prev=temp;
+            temp=NULL;
+        }
+        else
+        {
             temp=temp->right;
         }
-
-//if node is last node i.e no right and left child or its both childeens are visited
-
-        if((temp->right==NULL && temp->left==NULL) ||((temp->right->visit==true)||(temp->left->visit==true)))
-        {
-            temp=stack[top]; // temp=pop();
-            top--;
-            cout<<temp->data<<"\t";
-            temp->visit=true;
-            // pop again to point next element
-            temp=stack[top]; //temp=pop();
-        }
     }
-
 }
 
 int main()
