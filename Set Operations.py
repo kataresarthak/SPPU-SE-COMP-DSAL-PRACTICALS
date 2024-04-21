@@ -54,7 +54,7 @@ class SetOperations:
     def union_sets(self):
         print("\nUnion Of Two Set Is:")
         set3 = self.s1.union(self.s2)
-        print("\n", set3)
+        print("\n",set3)
 
     def intersection_sets(self):
         print("Intersection Of Two Set Is:")
@@ -64,7 +64,7 @@ class SetOperations:
     def symmetric_difference_sets(self):
         print("Symmetric Difference Of Two Set Is:")
         set3 = self.s1.symmetric_difference(self.s2)
-        print("\n", set3)
+        print("\n",set3)
 
     def subset_check(self):
         print("\nChecking If Set 1 Is Subset Of Set 2")
