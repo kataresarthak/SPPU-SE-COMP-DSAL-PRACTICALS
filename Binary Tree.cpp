@@ -215,7 +215,7 @@ void node::nonreclrv(node* root)
 
         temp=stack[top];
 
-        if (temp->right==nullptr || temp->right==prev)
+        if (temp->right==NULL || temp->right==prev)
         {
             cout<<temp->data<<"\t";
             top--;
