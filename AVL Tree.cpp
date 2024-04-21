@@ -61,7 +61,6 @@ int main()
             case 0:
                 break;
         }
-
     }while(ch!=0);
 }
 
