@@ -124,6 +124,7 @@ void nodeth::display1(nodeth *root)
 	}
 }
 }
+
 int main()
 {
 	nodeth *root=NULL;
