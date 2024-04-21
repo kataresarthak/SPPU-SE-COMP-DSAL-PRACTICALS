@@ -7,7 +7,6 @@ struct Node
     Node *left=NULL,*right=NULL;
 };
 
-
 class BST
 {
     public:
@@ -23,7 +22,6 @@ class BST
     void search(int x);
     void mirror(Node *root);
 };
-
 
 void BST::insert()
 {
@@ -92,7 +90,6 @@ int BST::longest_path(Node *nd)
 
     return 1 + max(ll,lr);
 }
-
 
 void BST::search(int x)
 {
