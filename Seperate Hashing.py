@@ -25,7 +25,7 @@ class SeparateHash:
             for j in self.v[i]:
                 print(j, end=" ")
             print()
-
+            
 ch = 'y'
 obj = SeparateHash(10)
 
