@@ -1,10 +1,11 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
+
 int main()
 {
     int n;  
-    cout<<"Enter the Number of Cities :- ";
+    cout<<"ENTER THE NUMBER OF CITIES :";
     cin>>n;
     int cost[n][n],visit[n];
     //Declared visit array and cost matrix
@@ -19,11 +20,11 @@ int main()
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             if(i==j) break;
-            cout<<"Do you Want to add path between city "<<i<<" and city "<<j<<"? ";
+            cout<<"DO YOU WANT TO ADD PATH BETWEEEN CITY "<<i<<" AND CITY "<<j<<"? (Y/N) :";
             char ch;    cin>>ch;
             if(ch=='y' || ch=='Y')
             {
-                cout<<"Enter the Cost of the Edge :- ";
+                cout<<"ENTER THE COST OF EDGES :";
                 cin>>cost[i][j];
                 cost[j][i]=cost[i][j];
             }
@@ -50,9 +51,9 @@ int main()
         visit[next]=1;
     }
     
-    cout<<"Minimum Cost to Visit all cities  :- "<<mincost<<endl;
+    cout<<"MINIMUM COST TO VISIT ALL CITIES : "<<mincost<<endl;
     
-    cout<<"\n\nCost Matrix:- "<<endl;
+    cout<<"\n\nCOST MATRIX : "<<endl;
     cout<<endl;
     
     for(int i=0;i<n;i++) 
