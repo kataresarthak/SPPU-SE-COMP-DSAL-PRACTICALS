@@ -25,25 +25,32 @@ class SeparateHash:
             for j in self.v[i]:
                 print(j, end=" ")
             print()
-            
-ch = 'y'
+
 obj = SeparateHash(10)
 
-while ch in ('y', 'Y'):
-    print("\n1.INSERT ELEMENT\n2.FIND KEY\n3.DISPLAY ELEMENT\n4.DELETE ELEMENT")
+while True:
+    print("\n1.INSERT ELEMENT\n2.DISPLAY ELEMENT\n3.FIND KEY\n4.DELETE ELEMENT\n0.EXIT")
+    ch = int(input("ENTER YOUR CHOICE :"))
 
-    n = int(input("ENTER YOUR CHOICE: "))
-    if n == 3:
-        obj.display_hash()
-    elif n == 2:
-        key = int(input("ENTER ELEMENT TO FIND: "))
-        print("ELEMENT FOUND AT INDEX:", obj.get_hash_index(key))
-    elif n == 1:
-        num = int(input("HOW MANY ELEMENTS YOU WANT TO INSERT: "))
+    if ch == 1:
+        num = int(input("HOW MANY ELEMENTS YOU WANT TO INSERT :"))
         for _ in range(num):
-            key = int(input("ENTER ELEMENT TO INSERT: "))
+            key = int(input("ENTER ELEMENT TO INSERT :"))
             obj.add(key)
-    elif n == 4:
-        key = int(input("ENTER ELEMENT TO DELETE: "))
+
+    elif ch == 2:
+        obj.display_hash()
+
+    elif ch == 3:
+        key = int(input("ENTER ELEMENT TO FIND :"))
+        print("ELEMENT FOUND AT INDEX :", obj.get_hash_index(key))
+
+    elif ch == 4:
+        key = int(input("ENTER ELEMENT TO DELETE :"))
         obj.delete(key)
-    ch = input("DO YOU WANT TO CONTINUE (Y OR N): ")
+        
+    elif ch == 0:
+        break
+
+    else:
+        print("Wrong Choice")
