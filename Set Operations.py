@@ -1,100 +1,100 @@
-class SetOperations:
-    def __init__(self):
-        self.s1 = {0}
-        self.s2 = {0}
+class Set:
+    def __init__(self, n):
+        self.s = []
+        for _ in range(n):
+            e = int(input("Enter Element: "))
+            if e not in self.s:
+                self.s.append(e)
+                
+    def add(self, e):
+        if e not in self.s:
+            self.s.append(e)
+    
+    def delete(self, e):
+        if e in self.s:
+            self.s.remove(e)
 
-    def add(self):
-        print("1.Enter Elements In Set 1\n2.Enter Elements in Set 2\n")
-        choice = int(input("Enter Your Choice\n"))
-        if choice == 1:
-            element = int(input("Enter The Element to Be Added:"))
-            self.s1.add(element)
-            print(f"Element {element} is Added To Set 1")
-        elif choice == 2:
-            element = int(input("Enter The Element to Be Added:"))
-            self.s2.add(element)
-            print(f"Element {element} is Added To Set 2")
+    def intersect(self, s2):
+        return list(set(self.s).intersection(s2))
+    
+    def union(self, s2):
+        return list(set(self.s).union(s2))
+    
+    def diff(self, s2):
+        return list(set(self.s).difference(s2))
+    
+    def subset(self):
+        subsets = [[]]
+        for ele in self.s:
+            new_subsets = [subset + [ele] for subset in subsets]
+            subsets.extend(new_subsets)
+        return subsets
 
-    def remove(self):
-        print("1.Remove Elements In Set 1\n2.Remove Elements in Set 2\n")
-        choice = int(input("Enter Your Choice\n"))
-        if choice == 1:
-            element = int(input("Enter The Element To Be Removed:"))
-            self.s1.remove(element)
-            print(f"\nElement {element} is Removed From Set 1\n")
-        elif choice == 2:
-            element = int(input("Enter The Element To Be Removed:"))
-            self.s2.remove(element)
-            print(f"Element {element} is Removed From Set 2")
+def create_set():
+    n = int(input("Enter total number of elements: "))
+    s = Set(n)
+    return s
 
-    def display(self):
-        print("1.Display Elements In Set 1\n2.Display Elements in Set 2\n")
-        choice = int(input("Enter Your Choice :"))
-        if choice == 1:
-            print("\n", self.s1)
-        elif choice == 2:
-            print("\n", self.s2)
+print("Creating Set 1")
+s1 = create_set()
+print("Set 1:", s1.s)
 
-    def search(self):
-        print("1.Search Elements In Set 1\n2.Search Elements in Set 2\n")
-        choice = int(input("Enter Your Choice\n"))
-        if choice == 1:
-            element = int(input("Enter The Element to Be Searched:"))
-            if element in self.s1:
-                print("\nElement Is Present\n")
-        elif choice == 2:
-            element = int(input("Enter The Element to Be Searched:"))
-            if element in self.s2:
-                print("\nElement Is Present\n")
+print("Creating Set 2")
+s2 = create_set()
+print("Set 2:", s2.s)
 
-    def length(self):
-        print("\nLength Of The Set 1:\n", len(self.s1))
-        print("\nLength Of The Set 2:\n", len(self.s2))
-
-    def union_sets(self):
-        print("\nUnion Of Two Set Is:")
-        set3 = self.s1.union(self.s2)
-        print("\n",set3)
-
-    def intersection_sets(self):
-        print("Intersection Of Two Set Is:")
-        set3 = self.s1.intersection(self.s2)
-        print("\n", set3)
-
-    def symmetric_difference_sets(self):
-        print("Symmetric Difference Of Two Set Is:")
-        set3 = self.s1.symmetric_difference(self.s2)
-        print("\n",set3)
-
-    def subset_check(self):
-        print("\nChecking If Set 1 Is Subset Of Set 2")
-        if self.s1.issubset(self.s2):
-            print("\nSet 2 Is Subset Of Set 1")
-        else:
-            print("\nSet 2 Is Not Subset Of Set 1")
-set_operations = SetOperations()
 while True:
-    print("\n***************MENU*************")
-    print("1.Add\n2.Remove\n3.Display\n4.Search\n5.Length\n6.Union\n7.Intersection\n8.Symmetric Difference\n9.Subset\n10.Exit")
-    choice = int(input("Enter Your Choice:"))
+    print("\n1. Add")
+    print("2. Remove")
+    print("3. Contain")
+    print("4. Size")
+    print("5. Intersection")
+    print("6. Union")
+    print("7. Difference")
+    print("8. All possible subsets of the set")
+    print("0. Exit")
+    ch = int(input("Enter choice: "))
 
-    if choice == 1:
-        set_operations.add()
-    elif choice == 2:
-        set_operations.remove()
-    elif choice == 3:
-        set_operations.display()
-    elif choice == 4:
-        set_operations.search()
-    elif choice == 5:
-        set_operations.length()
-    elif choice == 6:
-        set_operations.union_sets()
-    elif choice == 7:
-        set_operations.intersection_sets()
-    elif choice == 8:
-        set_operations.symmetric_difference_sets()
-    elif choice == 9:
-        set_operations.subset_check()
-    elif choice == 10:
+    if ch == 1:
+        ele = int(input("Enter Element: "))
+        s1.add(ele)
+        print("Set1:", s1.s)
+
+    elif ch == 2:
+        ele = int(input("Enter Element: "))
+        s1.delete(ele)
+        print("Set1:", s1.s)
+
+    elif ch == 3:
+        ele = int(input("Enter element: "))
+        if ele in s1.s:
+            print("Element is present in Set 1")
+        else:
+            print("Element is not present in Set 1")
+
+    elif ch == 4:
+        print("The size of the Set 1 is", len(s1.s))
+    
+    elif ch == 5:
+        s3 = s1.intersect(s2.s)
+        print("Intersection:", s3)
+    
+    elif ch == 6:
+        s3 = s1.union(s2.s)
+        print("Union:", s3)
+    
+    elif ch == 7:
+        print("s1-s2: ", s1.diff(s2.s))
+        print("s2-s1: ", s2.diff(s1.s))
+    
+    elif ch == 8:
+        subsets = s1.subset()
+        print("All the Subsets of the SeT :")
+        for subset in subsets:
+            print(subset)
+    
+    elif ch == 0:
         break
+
+    else:
+        print("Wrong choice")
