@@ -1,6 +1,8 @@
-/*A Book consist of chapters, chapters consist of sections and sections consist
+/*
+A Book consist of chapters, chapters consist of sections and sections consist
 of subsections construct a tree and print the nodes find the time and space
-requirements of your method.*/
+requirements of your method.
+*/
 
 #include<iostream>
 #include <string>
@@ -104,7 +106,9 @@ int main()
     return 0;
 }
 
-/*createnode function : The time complexity for creating a tree of depth D with N nodes per level is O(D * N).
+/*
+createnode function : The time complexity for creating a tree of depth D with N nodes per level is O(D * N).
                         The space complexity for creating a tree with D depth and N nodes per level is O(D * N).
 displaytree function : The time complexity for displaying N nodes in a tree is O(N).
-                        The space complexity for storing the tree structure in memory is also O(D * N).*/
+                        The space complexity for storing the tree structure in memory is also O(D * N).
+*/
