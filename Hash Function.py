@@ -11,6 +11,13 @@ class SeparateHash:
         if x not in self.v[i]:
             self.v[i].append(x)
 
+    def find(self, x):
+        i = self.get_hash_index(x)
+        if x in self.v[i]:
+            print("ELEMENT FOUND AT INDEX :", obj.get_hash_index(x))
+        else:
+            print("NO ELEMENT FOUND!")
+
     def delete(self, x):
         i = self.get_hash_index(x)
         if x in self.v[i]:
@@ -43,7 +50,7 @@ while True:
 
     elif ch == 3:
         key = int(input("ENTER ELEMENT TO FIND :"))
-        print("ELEMENT FOUND AT INDEX :", obj.get_hash_index(key))
+        obj.find(key)
 
     elif ch == 4:
         key = int(input("ENTER ELEMENT TO DELETE :"))
