@@ -73,7 +73,7 @@ while True:
             print("Element is not present in Set 1")
 
     elif ch == 4:
-        print("The Size of the Set 1 is", len(s1.s))
+        print("Size of the Set 1 :", len(s1.s))
     
     elif ch == 5:
         s3 = s1.intersect(s2.s)
@@ -89,7 +89,7 @@ while True:
     
     elif ch == 8:
         subsets = s1.subset()
-        print("All the Subsets of the Set :")
+        print("All the Subsets of the Set 1 :")
         for subset in subsets:
             print(subset)
     
