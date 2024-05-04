@@ -1,63 +1,73 @@
-class SeparateHash:
-    def __init__(self, n):
-        self.n = n
-        self.v = [[] for _ in range(n)]
+HT = [[] for _ in range(10)]
+print("Blank = ", HT)
 
-    def get_hash_index(self, x):
-        return x % self.n
+def insert(HT, key, value):
+    loc = key % 10
+    bucket = HT[loc]
+    exist = False
+    for i, kv in enumerate(bucket):
+        k, v = kv
+        if key == k:
+            exist = True
+            break
+    if exist:
+        bucket[i] = (key, value)
+    else:
+        bucket.append((key, value))
 
-    def add(self, x):
-        i = self.get_hash_index(x)
-        if x not in self.v[i]:
-            self.v[i].append(x)
+def delete(HT, key):
+    loc = key % 10
+    bucket = HT[loc]
+    exist = False
+    for i, kv in enumerate(bucket):
+        k, v = kv
+        if key == k:
+            exist = True
+            break
+    if exist:
+        del bucket[i]
+    else:
+        print("Element not found to delete")
 
-    def find(self, x):
-        i = self.get_hash_index(x)
-        if x in self.v[i]:
-            print("ELEMENT FOUND AT INDEX :", obj.get_hash_index(x))
-        else:
-            print("NO ELEMENT FOUND!")
+def search(HT, key):
+    loc = key % 10
+    bucket = HT[loc]
+    exist = False
+    for i, kv in enumerate(bucket):
+        k, v = kv
+        if key == k:
+            exist = True
+            break
+    if exist:
+        print("Element found, value: ", v)
+    else:
+        print("Element not found")
 
-    def delete(self, x):
-        i = self.get_hash_index(x)
-        if x in self.v[i]:
-            self.v[i].remove(x)
-            print(x, "DELETED")
-        else:
-            print("NO ELEMENT FOUND!")
+def display(HT):
+    for i, bucket in enumerate(HT):
+        print("Bucket", i, "Elements:", bucket)
 
-    def display_hash(self):
-        for i in range(self.n):
-            print(i, end=" --> ")
-            for j in self.v[i]:
-                print(j, end=" ")
-            print()
-
-obj = SeparateHash(10)
-
+# Main Program
 while True:
-    print("\n1.INSERT ELEMENT\n2.DISPLAY ELEMENT\n3.FIND KEY\n4.DELETE ELEMENT\n0.EXIT")
-    ch = int(input("ENTER YOUR CHOICE :"))
-
+    print("\n1. Insert")
+    print("2. Delete")
+    print("3. Search key")
+    print("4. Print Hash Table")
+    print("0. Exit")
+    ch = int(input("Enter Choice: "))
     if ch == 1:
-        num = int(input("HOW MANY ELEMENTS YOU WANT TO INSERT :"))
-        for _ in range(num):
-            key = int(input("ENTER ELEMENT TO INSERT :"))
-            obj.add(key)
-
+        key = int(input("Enter key: "))
+        value = input("Enter value: ")
+        insert(HT, key, value)
     elif ch == 2:
-        obj.display_hash()
-
+        key = int(input("Enter the key: "))
+        delete(HT, key)
     elif ch == 3:
-        key = int(input("ENTER ELEMENT TO FIND :"))
-        obj.find(key)
-
+        key = int(input("Enter the key: "))
+        search(HT, key)
     elif ch == 4:
-        key = int(input("ENTER ELEMENT TO DELETE :"))
-        obj.delete(key)
-        
+        display(HT)
     elif ch == 0:
         break
-
     else:
-        print("Wrong Choice")
+        print("Wrong choice")
