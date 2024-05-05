@@ -1,19 +1,19 @@
 HT = [[] for _ in range(10)]
 print("Blank = ",HT)
 
-def insert(HT,key,value):
+def insert(HT, key, value):
     loc = key % 10
     bucket = HT[loc]
     exist = False
-    for i, kv in enumerate(bucket):
+    for i,kv in enumerate(bucket):
         k,v = kv
         if key == k:
             exist = True
             break
     if exist:
-        bucket[i] = (key,value)
+        bucket[i] = (key, value)
     else:
-        bucket.append((key,value))
+        bucket.append((key, value))
 
 def delete(HT,key):
     loc = key % 10
@@ -34,8 +34,8 @@ def search(HT,key):
     loc = key % 10
     bucket = HT[loc]
     exist = False
-    for i, kv in enumerate(bucket):
-        k, v = kv
+    for i,kv in enumerate(bucket):
+        k,v = kv
         if key == k:
             exist = True
             break
@@ -45,7 +45,7 @@ def search(HT,key):
         print("Element not found")
 
 def display(HT):
-    for i, bucket in enumerate(HT):
+    for i,bucket in enumerate(HT):
         print("Bucket",i,"Elements:",bucket)
 
 while True:
