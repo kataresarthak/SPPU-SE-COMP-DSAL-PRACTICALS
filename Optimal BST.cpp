@@ -25,6 +25,7 @@ int find(int c[5][5],int i,int j)
     int l,k,cost;
     for(k=i;k<=j;k++) {
         cost=c[i][k-1]+c[k+1][j];
+        
         if(cost<min)
         {
             min=cost;
@@ -38,15 +39,18 @@ void optimal(int p[10],int q[10],int n)
 {
     int w[5][5],c[5][5],r[5][5],i,j,k;
     node *root;
+    
     for(i=0;i<=n;i++)
         for(j=0;j<=n;j++)
             c[i][j]=w[i][j]=r[i][j]=0;
+    
     for(i=1;i<=n;i++)
     {
         w[i][i]=q[i-1]+q[i]+p[i];
         c[i][i]= w[i][i];
         r[i][i]=i;
     }
+    
     for(int step=2;step<=n;step++)
         for(i=1;i<=n-step+1;i++)
         {
@@ -56,11 +60,13 @@ void optimal(int p[10],int q[10],int n)
             c[i][j]=w[i][j]+c[i][k-1]+c[k+1][j];
             r[i][j]=k;
         }
+    
     for(i=1;i<=n;i++)
     {
         j=i;
         cout<<w[i][j]<<c[i][j]<<r[i][j];
     }
+    
     for(int step=2;step<=n;step++)
     {
         for(i=1;i<=n-step+1;i++)
