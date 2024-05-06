@@ -2,29 +2,20 @@ import java.util.Arrays;
 
 public class ShellSort
 {
-    public static void shell(int [] a)
+    public static void shell(int[] a)
     {
-        int increment = a.length/2;
-        while(increment>0)
+        int n = a.length;
+        for (int gap = n / 2; gap > 0; gap /= 2)
         {
-            for(int i = increment; i<a.length; i++)
+            for (int i = gap; i < n; i++)
             {
-                int j=i;
-                int temp=a[i];
-                while(j >= increment && a[j - increment] > temp)
+                int temp = a[i];
+                int j;
+                for (j = i; j >= gap && a[j - gap] > temp; j -= gap)
                 {
-                    a[j] = a[j - increment];
-                    j = j - increment;
+                    a[j] = a[j - gap];
                 }
                 a[j] = temp;
-            }
-            if(increment == 2)
-            {
-                increment = 1;
-            }
-            else
-            {
-                increment *= (5.0/11);
             }
         }
     }
@@ -32,10 +23,10 @@ public class ShellSort
     public static void main(String[] args)
     {
         ShellSort ob = new ShellSort();
-        int nums[] = {7,-5,3,2,1,0,45};
+        int nums[] = { 7, -5, 3, 2, 1, 0, 45 };
         System.out.println("ORIGINAL ARRAY :");
         System.out.println(Arrays.toString(nums));
-    
+
         ob.shell(nums);
         System.out.println("\nSORTED ARRAY :");
         System.out.println(Arrays.toString(nums));
