@@ -24,7 +24,6 @@ class Derive extends Base implements base1,base2
 {
     int a,b;
     Scanner sc=new Scanner(System.in);
-
     void input()
     {
         System.out.print("Enter The Values Of A & B :");
